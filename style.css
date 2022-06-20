@@ -1,3 +1,151 @@
-main {
+:root {
+    --color-primary: hsl(25, 97%, 53%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-medium-gray: hsl(216, 12%, 54%);
+    --color-light-gray: hsl(217, 12%, 63%);
+    --color-dark-blue: hsl(213, 19%, 18%);
+    --color-very-dark-blue: hsl(216, 12%, 8%);
+    --shadow: rgba(0,0,0,0.35) 0px 5px 15px;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
     font-family: 'Overpass', sans-serif;
+    background-color: var(--color-very-dark-blue);
+    font-size: 15px;
+}
+
+.rating-card {
+    width: 400px;
+    height: auto;
+    background: linear-gradient(
+        to bottom, 
+        rgb(37, 45, 55, 0.6), 
+        rgb(37, 45, 55, 0.4));
+    border-radius: 25px;
+    padding: 20px 25px;
+    box-shadow: var(--shadow);
+}
+
+.rating-card-content .star {
+    background-color: var(--color-dark-blue);
+    padding: 10px;
+    border-radius: 100%;
+    margin-bottom: 20px;
+}
+
+.rating-card-title {
+    font-size: 2rem;
+    color: var(--color-white);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.rating-card-description {
+    font-size: 1rem;
+    color: var(--color-medium-gray);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+
+/* radio form elements */
+
+.form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-radio-input{
+    display: none;
+}
+
+.form-radio-label {
+    display: block;
+    cursor: pointer;
+    margin-right: 55px;
+    margin-bottom: 50px;
+}
+
+.form-radio-button {
+    height: 50px;
+    width: 50px;
+    background-color: var(--color-dark-blue);
+    border-radius: 100%;
+    position: absolute;
+    transition: background-color 0.2s;
+}
+
+.form-radio-button::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-medium-gray);
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.form-radio-button div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    color: var(--color-white);
+    font-weight: 400;
+    /* z-index: 2; */
+}
+
+.form-radio-button:hover {
+   background-color: var(--color-primary); 
+}
+
+.form-radio-input:checked ~ .form-radio-label .form-radio-button::after {
+    opacity: 0.7;
+}
+
+/* submit botton  */
+
+.form-button {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 1.125rem;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.form-button:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+
+/* attribution section  */
+.attribution { 
+    font-size: 11px; text-align: center; 
+    margin-top: 20px;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
 }
